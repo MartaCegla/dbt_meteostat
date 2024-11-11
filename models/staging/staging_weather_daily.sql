@@ -23,3 +23,4 @@ WITH daily_raw AS (
     )
     SELECT * 
     FROM daily_flattened
+    
