@@ -4,12 +4,12 @@ WITH daily_data AS (
 ),
 add_features AS (
     SELECT *
-		, DATE_PART('day', date) AS date_day
-		, DATE_PART('month', date) AS date_month
+		, DATE_PART('day',date) AS date_day
+		, DATE_PART('month',date) AS date_month
 		, DATE_PART('year',date) AS date_year
 		, EXTRACT (week from date) AS cw
-		, to_char (date,'FMMonth') AS month_name
-		, to_char (date, 'day') AS weekday
+		, to_char (date,'FMmonth') AS month_name
+		, to_char (date,'day') AS weekday
     FROM daily_data 
 ),
 add_more_features AS (
