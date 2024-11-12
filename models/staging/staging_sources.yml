@@ -2,7 +2,7 @@ version: 2
 sources:
 
 - name: staging_weather
-  schema: c_alex
+  schema: s_martacegla
   tables:
     - name: weather_daily_raw
     - name: weather_hourly_raw

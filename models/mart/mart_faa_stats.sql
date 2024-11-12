@@ -2,7 +2,7 @@ WITH departures AS (
             SELECT origin AS faa , 
                     COUNT(*) AS nunique_to, 
                     COUNT(sched_dep_time) AS dep_planned,
-                    sSUMum(cancelled) AS dep_cancelled,
+                    SUM(cancelled) AS dep_cancelled,
                     SUM(diverted) AS dep_diverted,
                     COUNT(dep_time) AS dep_n_flights,
                     COUNT(DISTINCT tail_number) AS dep_nunique_tails,
@@ -40,5 +40,5 @@ SELECT ap.city,
         ap.name, 
         t.*
 FROM total_stats t
-LEFT JOIN {{ref('prep_flights')}}
+LEFT JOIN {{ref('prep_flights')}} ap
 USING (faa)
