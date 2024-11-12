@@ -40,5 +40,5 @@ SELECT ap.city,
         ap.name, 
         t.*
 FROM total_stats t
-LEFT JOIN {{ref('prep_flights')}} ap
+LEFT JOIN {{ref('prep_airports')}} ap
 USING (faa)
