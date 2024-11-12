@@ -4,21 +4,21 @@ WITH daily_data AS (
 ),
 add_features AS (
     SELECT *
-		, DATE_PART('day',date) AS date_day
-		, DATE_PART('month',date) AS date_month
-		, DATE_PART('year',date) AS date_year
-		, EXTRACT (week from date) AS cw
-		, to_char (date,'FMmonth') AS month_name
-		, to_char (date,'day') AS weekday
+		,DATE_PART('day', date) AS date_day
+		,DATE_PART('month', date) AS date_month
+		,DATE_PART('year', date)AS date_year
+		,DATE_PART('week', date)AS cw
+		,TO_CHAR(date, 'FMMonth')AS month_name
+		,TO_CHAR(date, 'Day')AS weekday
     FROM daily_data 
 ),
 add_more_features AS (
     SELECT *
 		, (CASE 
-			WHEN date_month in (12, 1, 2) THEN 'winter'
-			WHEN date_month in (3, 4, 5) THEN 'spring'
-            WHEN date_month in (6, 7, 8)  THEN 'summer'
-            WHEN date_month in (9, 10, 11) THEN 'autumn'
+			WHEN month_name in ('December', 'January', 'February') THEN 'winter'
+			WHEN month_name in ('March', 'April', 'May') THEN 'spring'
+            WHEN month_name in ('June', 'July', 'August') THEN 'summer'
+            WHEN month_name in ('September', 'October', 'November') THEN 'autumn'
 		END) AS season
     FROM add_features
 )
