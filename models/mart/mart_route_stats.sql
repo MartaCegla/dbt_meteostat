@@ -49,20 +49,3 @@ LEFT JOIN origin_airport o
 ON rs.origin = o.origin_faa
 LEFT JOIN destination_airport d 
 ON rs.dest = d.dest_faa
-
-
-
-
-
-
-
-
-
-
-
-
-
-SELECT*
-FROM prep_flights pf 
-
---- add city, country and name for both, origin and destination, airports
